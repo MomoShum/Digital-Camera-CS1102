@@ -990,7 +990,7 @@
                     <li>1. Shutter Button
                         Pressing this button will release the shutter and take a picture</li>
                     <li>2. Main Dial
-                        A cogwheel that adjusts the ISO, aperture, shutter speed setting</li>
+                        A cogwheel that adjusts the ISO, aperture, and shutter speed setting</li>
                     <li>3. Mode Dial
                         A small cogwheel that switches different modes of the camera</li>
                     <li>4. Flash
@@ -998,7 +998,7 @@
                         front of the camera</li>
                     <li>5. Flash Button
                         Open the flash before triggered</li>
-                    <li>6. Lens Focus Mode SwitchSwitch between AF(Auto focus) and MF(Manual
+                    <li>6. Lens Focus Mode SwitchSwitch betweenAutofocusocus) and MF(Manual
                         focus)</li>
                     <li>7. Lens Release Button
                         Unlocks the lens mount</li>
@@ -1021,15 +1021,15 @@
                     <li>14. Play Button
                         Playing back the image that you captured</li>
                     <li>15. LCD Display
-                        Viewing the photos and displaying the camera settings/li>
+                        Viewing the photos and displaying the camera settings
                     <li>16. Menu Button
-                        Display the menu and adjust camera setting in detail</li>
+                        Display the menu and adjust the camera setting in detail</li>
                     <li>17. Movie Shooting Button
-                        Start video recording after press the button</li>
+                        Start video recording after pressing the button</li>
                     <li>18. Battery Compartment
                         Place that put the battery</li>
                     <li>19. Card Slot
-                        Place that insert the memory card</li>
+                        A place that inserts the memory card</li>
 
                 </ul>
             </div>
@@ -1043,9 +1043,9 @@
             <ul id="working_content">
                 <li>1. Light enters the camera
                     By pressing the camera's shutter button, the aperture opens at the front of the
-                    camera and light streams in through the lens.</li>
+                    camera, and light streams in through the lens.</li>
                 <li>2. Focus the light through the lens
-                    Incoming light is focused through the lens and goes onto the image sensor at the
+                    Incoming light is focused through the lens and onto the image sensor at the
                     back of the camera. The lens might have various focuses that photographers can use
                     to control the movable elements, adjust them, and let the light focus on the image
                     plane.</li>
@@ -1062,13 +1062,13 @@
                     cameras’ quantum efficiencies can reach over 80%.</li>
                 <li>4. Analog-to-digital conversion
                     The electrons are then transferred and converted to an analog voltage using an
-                    analog-to-digital converter (ADC). ADC transforms the analogue charge stored in
-                    each pixel into a digital value. It shows the brightness and colour intensity of the
+                    analog-to-digital converter (ADC). ADC transforms the analog charge stored in
+                    each pixel into a digital value. It shows the brightness and color intensity of the
                     pixel. The transferred digital value can be further processed through image
-                    processing, memory storage or compression for more efficient storage and
+                    processing, memory storage, or compression for more efficient storage and
                     transmission.</li>
                 <li>5. Image processing
-                    The image processor adjusts and enhances the digital image captured in real-time —
+                    The image processor adjusts and enhances the digital image captured in real time —
                     the main tasks involved demosai</li>
                 <li>6. Store image
                     The processed digital image is stored in the memory card inserted in the camera or
@@ -1086,8 +1086,8 @@
             <img class="hardware_img" src="images/03_p.jpg" alt="">
             <div class="hardware_text">
                 When the camera captures the scene, light focuses and passes through the Colour Filter
-                Array (CFA). The blurring filter is inserted to reduce the artefacts created during demosaicing
-                and downsampling of the colour information of CFA.
+                Array (CFA). The blurring filter is inserted to reduce the artifacts created during demosaicing
+                and downsampling of the color information of CFA.
                 The visual information is sampled from the image sensor and analog-to-digital converter. It is
                 temporarily stored in the DRAM buffer and goes through the application-specific integrated
                 circuit (ASIC). ASIC also gathers information from microprocessors, which are affected by
@@ -1108,29 +1108,28 @@
             <h1>Software architecture</h1>
             <ul>
                 <li>
-                    System laye1System services, for example, display text with the picture, flash start and stop after
+                    System layer: System services, for example, display text with the picture, flash start and stop after
                     timeout of an
                     autotimer, saving and retrieving of processor intemal registers, and OS services such as
                     iPCsInter-processcomi
                 </li>
-                <li>Application layerSystem switches, button and control tasks. Examples are flash, light, contrast and
+                <li>Application layer: System switches, button and control tasks. Examples are flash, light, contrast and
                     image viewbefore
                     shooting</li>
                 <li>
-                    Function layerFor application layer tasks functionality using Picture_FileCreation,
-                    Picture_.FileDisplay andPicture
+                    Function layer: For application layer tasks functionality using Picture_FileCreation,
+                    Picture_.FileDisplay and picture
                     FileTransfer
                 </li>
-                <li>Presentation layerStandard access to image file, examples are the default settings of image
+                <li>Presentation layer: Standard access to image file, examples are the default settings of image
                     contrast, resolution,
                     andoutputs, display color setting, sound of clicks, time and date display, dot-matrix or touchscreen
                     driver.ADC output
                     format and data outputs</li>
                 <li>
-                    Control layer
-                    Controller Tasks, timer control and real-time control modules
+                    Control layer: Controller Tasks, timer control and real-time control modules
                 </li>
-                <li>Base layer
+                <li>Base layer:
                     Standard access to the interal devices in the microcontroller, internal device examples are timer
                     real-time ciock,Sl(serial interface), ADC, USB port</li>
             </ul>

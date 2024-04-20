@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100%;
+            height: 1000px;
+            padding-top: 60px;
+        }
+
+        .title {
+            width: 100%;
+            padding: 0 100px;
+            background-color: #434F79;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            z-index: 11111;
+            left: 0;
+        }
+
+        .search_box {
+
+            width: 250px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search_box input {
+            height: 35px;
+            width: 200px;
+            padding-left: 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: 1px solid transparent;
+        }
+
+        .search_box img {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .nav_bar {
+            position: absolute;
+            display: none;
+            width: 80px;
+            padding: 10px 0;
+            background-color: white;
+            z-index: 1111;
+            right: 0;
+            top: 60px;
+            box-shadow: 1px 1px 3px 0px black;
+        }
+
+
+        .btn_box {
+            width: 40px;
+            height: 35px;
+            background-color: #F4C745;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .nav_bar ul a {
+            width: 100%;
+            margin: 5px 0;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav_bar ul a:hover {
+            color: brown;
+        }
+
+        .navBar {
+            width: 100%;
+            padding: 0 100px;
+            background-color: #3D486E;
+            height: 50px;
+        }
+
+
+        .banner {
+            width: 100%;
+            height: 550px;
+            background-color: #F4C745;
+            position: relative;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .prev {
+            position: absolute;
+            bottom: -35px;
+            left: 20px;
+            background-color: #434F79;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .prev img,
+        .next img {
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .next {
+            position: absolute;
+            bottom: -35px;
+            left: 100px;
+            background-color: #434F79;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .img_text_box {
+            width: 300px;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .img_text_box li {
+            list-style: none;
+
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .Cart_shop {
+            cursor: pointer;
+        }
+
+        .none_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .img_text_box img {
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .shop_car {
+            position: absolute;
+            display: none;
+            padding: 20px;
+            top: 62px;
+            right: -30px;
+            background-color: #434F79;
+            box-shadow: 0 0px -2px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 300px;
+            z-index: 111;
+        }
+
+        .shop_car ul {
+            width: 100%;
+            height: 70%;
+            padding: 10px;
+            background-color: white;
+            overflow-y: auto;
+            border-radius: 10px;
+        }
+
+        #shop_car_box::-webkit-scrollbar {
+            width: 8px;
+            height: 1px;
+
+        }
+
+        #shop_car_box::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #ddd;
+
+        }
+
+        #shop_car_box::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background: #FEFEFE;
+
+        }
+
+        .shop_car ul li {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: white;
+            box-shadow: 0 -6px 10px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 5px;
+            margin: 10px 0;
+
+        }
+
+        .shop_car ul li .shop_del {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            width: 15px;
+            height: 15px;
+            margin: 0 !important;
+        }
+
+        .shop_car ul li img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .shop_text {
+            width: 100%;
+            height: 100%;
+
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+        }
+
+        .shop_text h1 {
+            font-size: 18px;
+            color: black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 200px;
+
+        }
+
+        .price_box {
+            width: 100%;
+            display: flex;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .close_btn {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            margin: 0 !important;
+            padding: 0;
+        }
+
+        .count_box {
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            color: black;
+            align-items: center;
+        }
+
+        #reduce_btn {
+            width: 15px;
+            height: 15px;
+        }
+
+        #add_btn {
+            width: 15px;
+            height: 15px;
+        }
+
+        .navBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navBar h1 {
+            color: white;
+            font-size: 24px;
+
+
+        }
+
+        .navBar img {
+            width: 35px;
+            height: 35px;
+            margin-right: 50px;
+        }
+
+        .text_box {
+            width: 100%;
+            padding: 50px 0;
+        }
+
+        .text_box p {
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .text_box p img {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .products {
+            width: 100%;
+            padding: 100px 200px;
+            background-color: white;
+        }
+
+        .products h3 {
+            text-align: center;
+            font-size: 47px;
+            font-style: oblique;
+            margin-bottom: 50px;
+        }
+
+        .products_img_list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .key_box {
+            margin: 20px 0;
+        }
+
+        .key_box img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .key_text {
+            margin-bottom: 150px;
+        }
+
+        .key_text p span {
+            font-weight: 700;
+        }
+
+        .products_box {
+            width: 400px;
+            height: 500px;
+            margin: 30px 0;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 -6px 10px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .products_box p {
+            padding: 20px 0;
+            font-size: 21px;
+            font-weight: 500;
+        }
+
+        .products_box:hover .add_btn {
+            display: block;
+        }
+
+        .Total_box {
+            text-align: center;
+            padding: 20px 0;
+            font-weight: 700;
+            font-size: 27px;
+            color: white;
+        }
+
+        .Total_box span {
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .add_btn {
+            display: none;
+            width: 80px;
+            height: 40px;
+            background-color: #2F3858;
+            color: white;
+            position: absolute;
+            right: 20px;
+            top: 320px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .p_img_box {
+            width: 100%;
+            height: 300px;
+            /* background-color: rgba(220, 220, 220, 0.678); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .p_img_box img {
+            width: 240px;
+
+        }
+
+        .Price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Price span {
+            font-size: 28px;
+        }
+
+        .star {
+            width: 150px;
+            height: 30px;
+        }
+
+        .star img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .content {
+            width: 100%;
+            padding: 100px 150px;
+            background-color: wheat;
+            display: flex;
+            align-items: center;
+        }
+
+
+
+        .footer {
+            width: 100%;
+            padding: 100px 150px;
+            background-color: #3D486E;
+        }
+
+        .item_box {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .items {
+            width: 250px;
+            height: 400px;
+
+            padding-left: 30px;
+        }
+
+        .items h1 {
+            font-size: 38px;
+            color: white;
+            font-style: oblique;
+        }
+
+        .items h2 {
+            font-size: 38px;
+            color: white;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .items img {
+            width: 20px;
+            height: 20px;
+            margin: 20px 0;
+
+        }
+
+        .items li {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            color: white;
+            text-align: start;
+            padding: 10px 0;
+        }
+
+        .items p {
+            color: white;
+            padding-right: 60px;
+        }
+
+        .items input {
+            width: 200px;
+            height: 50px;
+            font-size: 24px;
+            padding-left: 10px;
+
+        }
+
+        .items a {
+            display: block;
+            width: 200px;
+            height: 50px;
+            background-color: #F4C745;
+            color: white;
+            font-size: 23px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 2px;
+            margin: 50px 0;
+            text-decoration: none;
+        }
+
+        .img_list {
+            width: 200px;
+            height: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+
+        }
+
+        .img_list img {
+            width: 30px;
+            height: 30px;
+        }
+
+
+        table,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            vertical-align: baseline;
+            background: transparent;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 0;
+            color: #fff;
+        }
+
+        .tablebox table {
+            border-collapse: separate;
+            border-spacing: 1px
+        }
+
+        .tablebox {
+            width: 50%;
+            height: auto;
+            /* overflow: hidden; */
+            margin: 10px auto;
+            position: relative;
+
+        }
+
+        .tablebox h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .tablebox table {
+            width: 100%;
+
+        }
+
+        .tablebox table th,
+        .tablebox table td {
+            font-size: 12px;
+            text-align: center;
+            line-height: 16px;
+            background: #3754a2;
+            padding: 12px;
+        }
+
+        .tablebox table th {
+            height: 30px;
+            line-height: 30px;
+            background: #6271bd;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .tablebox table td img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .tablebox.table_md table td,
+        .tablebox.table_md table th {
+            line-height: 18px;
+        }
+
+        #tableId tbody {
+            opacity: 1;
+            transition: 1s all;
+        }
+
+        .about_content {
+            width: 50%;
+            /* padding: 50px; */
+            padding: 0 20px;
+
+        }
+
+        .about_content h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .about_box {
+            width: 100%;
+            height: 220px;
+            background-color: rgba(255, 255, 255, 0.685);
+            border-radius: 10px;
+            padding: 10px;
+            overflow-y: auto;
+            line-height: 2;
+        }
+
+        .about_box::-webkit-scrollbar {
+            width: 8px;
+            height: 1px;
+        }
+
+        .about_box::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #ddd;
+        }
+
+        .about_box::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .camera_box {
+            width: 100%;
+            /* height: 600px; */
+            padding: 50px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .camera_box h1 {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 40px;
+        }
+
+        .Photo_box {
+            width: 50%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .Photo_box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #Photo_text1 {
+            position: absolute;
+            right: 30px;
+            top: 0;
+            width: 400px;
+            list-style: none;
+            padding: 20px;
+            opacity: 0;
+            transition: 2s all;
+        }
+
+        #Photo_text2 {
+            position: absolute;
+            left: 30px;
+            top: 200px;
+            width: 400px;
+            list-style: none;
+            padding: 20px;
+            opacity: 0;
+            transition: 2s all;
+        }
+
+        #Photo_text1 li,
+        #Photo_text2 li {
+            background-color: rgba(220, 220, 220, 0.555);
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 5px 10px;
+
+        }
+
+        .working_box {
+            width: 100%;
+            padding: 50px 0;
+            background-color: white;
+            overflow: hidden;
+            border-top: 2px solid gainsboro;
+        }
+
+        .working_box h1 {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 40px;
+        }
+
+        .working_box img {
+            display: block;
+            margin: 50px auto;
+
+        }
+
+        #working_content {
+            width: 80%;
+            padding: 20px;
+            list-style: none;
+            margin: 0 auto;
+        }
+
+        #working_content li {
+            margin: 10px 0;
+            background-color: aliceblue;
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: 1s all;
+            line-height: 1.5;
+        }
+
+        #working_content li:hover {
+            color: brown;
+        }
+
+        .hardware {
+            width: 100%;
+            padding: 50px 0 100px;
+            background-color: white;
+            overflow: hidden;
+            border-top: 2px solid gainsboro;
+            position: relative;
+        }
+
+        .hardware h1 {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 40px;
+        }
+
+        .hardware img {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hardware_text {
+            line-height: 1.5;
+            width: 500px;
+            position: absolute;
+            right: 10px;
+            top: 50px;
+            font-size: 14px;
+            background-color: rgba(240, 248, 255, 1);
+            padding: 20px;
+            box-shadow: 1px 1px 1px 1px gainsboro;
+            transition: 2s all;
+            opacity: 0;
+            border-radius: 5px;
+        }
+
+        .line {
+            border-top: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid aliceblue;
+            position: absolute;
+            left: -40px;
+            top: 100px;
+
+        }
+
+        .table_img {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -30px;
+            top: 80px;
+            cursor: pointer;
+        }
+
+        .software {
+            width: 100%;
+            padding: 50px 0 100px;
+            background-color: white;
+            overflow: hidden;
+            border-top: 2px solid gainsboro;
+
+        }
+
+        .software h1 {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 40px;
+        }
+
+        .software ul {
+            list-style: none;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .software ul li {
+            padding: 50px 30px;
+            text-align: center;
+            border: 5px solid rgb(97, 107, 197);
+            background-color: rgba(112, 154, 231, 0.329);
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .link_box {
+            width: 100%;
+            padding: 50px 0 100px;
+            background-color: white;
+            overflow: hidden;
+            border-top: 2px solid gainsboro;
+        }
+
+        .link_box h1 {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 40px;
+        }
+
+        .link_content {
+            width: 70%;
+            margin: 50px auto;
+            border: 5px solid black;
+            padding: 20px;
+        }
+
+        .link_content ul {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            /* list-style: none; */
+        }
+
+        .link_content ul li {
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .link_content ul li span {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box">
+        <div class="title">
+            <div class="search_box">
+                <input type="text" placeholder="Search here...">
+                <div class="btn_box"><img src="./images/search.svg" alt=""></div>
+            </div>
+            <div class="img_text_box">
+                <li><img src="./images/user.svg" alt="">MY ACCOUNT</li>
+                <li><img src="./images/car (1).svg" alt="">CART</li>
+                <li class="sort"><img src="./images/list.svg" alt=""></li>
+                <div class="nav_bar">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="car.html">Cart</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="navBar">
+            <h1>Minics</h1>
+
+        </div>
+        <div class="content">
+            <div class="tablebox">
+                <img class="table_img" src="images/down_key.svg" alt="">
+                <h1>Group members</h1>
+                <table id="tableId" border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Student ID</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Lau Sin Ying</td>
+                            <td>57279853</td>
+
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Li Yuk Yu</td>
+                            <td>56624237</td>
+
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Shum Shue Kwan</td>
+                            <td>57141194</td>
+
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Chau Tsz Ching</td>
+                            <td>56752327</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="about_content">
+                <h1>About Us</h1>
+                <div class="about_box">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est placeat aut illum ullam atque nam
+                    velit dicta ad distinctio. Rem, eius laudantium. Possimus velit nemo accusantium necessitatibus hic
+                    sed in.
+                </div>
+            </div>
+
+
+        </div>
+        <div class="camera_box">
+            <h1>
+                Parts and functions of digital cameras
+            </h1>
+            <div class="Photo_box">
+                <img src="images/01_p.jpg" alt="">
+                <ul id="Photo_text1">
+                    <li>1. Shutter Button
+                        Pressing this button will release the shutter and take a picture</li>
+                    <li>2. Main Dial
+                        A cogwheel that adjusts the ISO, aperture, shutter speed setting</li>
+                    <li>3. Mode Dial
+                        A small cogwheel that switches different modes of the camera</li>
+                    <li>4. Flash
+                        The light that only fires when taking pictures, is always located on the top or
+                        front of the camera</li>
+                    <li>5. Flash Button
+                        Open the flash before triggered</li>
+                    <li>6. Lens Focus Mode SwitchSwitch between AF(Auto focus) and MF(Manual
+                        focus)</li>
+                    <li>7. Lens Release Button
+                        Unlocks the lens mount</li>
+                    <li>8. Lens
+                        Adjust the focal length</li>
+                    <li>9.
+                        Back</li>
+                    <li>10. Viewfinder
+                        A small window that previews the shot by framing the subject that you want to
+                        take a photo of. Also, it will show some detail that you set, for example, ISO,
+                        aperture, shutter speed</li>
+                </ul>
+                <ul id="Photo_text2">
+                    <li>11. Power Switch
+                        Power on or off the camera/li>
+                    <li>12. Cross Keys
+                        Directional buttons</li>
+                    <li>13. Erase Button
+                        Delete any unwanted images</li>
+                    <li>14. Play Button
+                        Playing back the image that you captured</li>
+                    <li>15. LCD Display
+                        Viewing the photos and displaying the camera settings/li>
+                    <li>16. Menu Button
+                        Display the menu and adjust camera setting in detail</li>
+                    <li>17. Movie Shooting Button
+                        Start video recording after press the button</li>
+                    <li>18. Battery Compartment
+                        Place that put the battery</li>
+                    <li>19. Card Slot
+                        Place that insert the memory card</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="working_box">
+            <h1>
+
+                How is the photo being captured?
+            </h1>
+            <img src="images/02_p.jpg" alt="">
+            <ul id="working_content">
+                <li>1. Light enters the camera
+                    By pressing the camera's shutter button, the aperture opens at the front of the
+                    camera and light streams in through the lens.</li>
+                <li>2. Focus the light through the lens
+                    Incoming light is focused through the lens and goes onto the image sensor at the
+                    back of the camera. The lens might have various focuses that photographers can use
+                    to control the movable elements, adjust them, and let the light focus on the image
+                    plane.</li>
+                <li>3. Capture the light with an image sensor
+                    The two main image sensors used today are charged-coupled device (CCD) and
+                    complementary mental-oxide-semiconductor (CMOS) sensor. They are light-sensitive
+                    areas made of crystal silicon. It absorbs photons and releases electrons through the
+                    photoelectric effect. The electrons are stored and transformed, and they accumulate
+                    over the length of exposure.
+                    However, the quantum efficiency of CCD and CMOS varies, and not every photon
+                    that hits the detector will register. If a sensor has a quantum efficiency of 40%, four
+                    photons will be detected and converted to electrons for every ten photons. CCD and
+                    CMOS sensors normally have about 20 to 50% quantum efficiency. Top-line CCD
+                    cameras’ quantum efficiencies can reach over 80%.</li>
+                <li>4. Analog-to-digital conversion
+                    The electrons are then transferred and converted to an analog voltage using an
+                    analog-to-digital converter (ADC). ADC transforms the analogue charge stored in
+                    each pixel into a digital value. It shows the brightness and colour intensity of the
+                    pixel. The transferred digital value can be further processed through image
+                    processing, memory storage or compression for more efficient storage and
+                    transmission.</li>
+                <li>5. Image processing
+                    The image processor adjusts and enhances the digital image captured in real-time —
+                    the main tasks involved demosai</li>
+                <li>6. Store image
+                    The processed digital image is stored in the memory card inserted in the camera or
+                    internal memory.</li>
+                <li>7. Display and review
+                    LCD screen at the back of the camera allows users to view the live view from the
+                    image sensor and the image captured.</li>
+                <li>8. Transfer and sharing
+                    As the image is stored in the memory, it can easily be transferred to other devices or
+                    memories.</li>
+            </ul>
+        </div>
+        <div class="hardware">
+            <h1>Hardware architecture</h1>
+            <img class="hardware_img" src="images/03_p.jpg" alt="">
+            <div class="hardware_text">
+                When the camera captures the scene, light focuses and passes through the Colour Filter
+                Array (CFA). The blurring filter is inserted to reduce the artefacts created during demosaicing
+                and downsampling of the colour information of CFA.
+                The visual information is sampled from the image sensor and analog-to-digital converter. It is
+                temporarily stored in the DRAM buffer and goes through the application-specific integrated
+                circuit (ASIC). ASIC also gathers information from microprocessors, which are affected by
+                flash, user interface, and power supply. After gathering all the data, digital data processing
+                operations like demosaicking and image resizing started, and the photos were later delivered
+                to stick memory media like cards. It can also be shown on an LCD screen for review.
+                Through USB and A/V, it can also be displayed on PC and TV interfaces for other purpose.
+                The firmware memory contains the instructions for ASIC and governs its operations. It
+                provides the interface for adjusting different camera settings like exposure, focus, white
+                balance and image processing that can change the image characteristics, and all the
+                camera functionalities.
+                <div class="line">
+
+                </div>
+            </div>
+        </div>
+        <div class="software">
+            <h1>Software architecture</h1>
+            <ul>
+                <li>
+                    System laye1System services, for example, display text with the picture, flash start and stop after
+                    timeout of an
+                    autotimer, saving and retrieving of processor intemal registers, and OS services such as
+                    iPCsInter-processcomi
+                </li>
+                <li>Application layerSystem switches, button and control tasks. Examples are flash, light, contrast and
+                    image viewbefore
+                    shooting</li>
+                <li>
+                    Function layerFor application layer tasks functionality using Picture_FileCreation,
+                    Picture_.FileDisplay andPicture
+                    FileTransfer
+                </li>
+                <li>Presentation layerStandard access to image file, examples are the default settings of image
+                    contrast, resolution,
+                    andoutputs, display color setting, sound of clicks, time and date display, dot-matrix or touchscreen
+                    driver.ADC output
+                    format and data outputs</li>
+                <li>
+                    Control layer
+                    Controller Tasks, timer control and real-time control modules
+                </li>
+                <li>Base layer
+                    Standard access to the interal devices in the microcontroller, internal device examples are timer
+                    real-time ciock,Sl(serial interface), ADC, USB port</li>
+            </ul>
+        </div>
+        <div class="link_box">
+            <h1>Reference</h1>
+            <div class="link_content">
+                <ul>
+                    <li><span>Konica Minolta DiMAGE X31 CCD Digital Camera:</span>
+                        https://showa-store.com/cdn/shop/files/NZ68244_15e…90f6-46e2-a6c9-aa31115ffd05_280x.jpg?v=1707903527
+                    </li>
+                    <li><span>Canon IXY DIGITAL 200a (PowerShot S200 / DIGITAL IXUS V2):</span>
+                        https://showa-store.com/cdn/shop/files/NZ67380_7c7…471b-4ec8-ba2e-491e4f99adf8_280x.jpg?v=1697193575
+                    </li>
+                    <li><span>Fujifilm FinePix Z1:</span>
+                        https://showa-store.com/cdn/shop/files/NZ67236_2e1…7b49-4729-8329-e14de0b64ad3_280x.jpg?v=1695969984
+                    </li>
+                    <li><span>Canon PowerShot A40 CCD Digital Camera:</span>
+                        https://showa-store.com/cdn/shop/files/NZ67179_991…120d-4d46-b4bf-349657fd9588_280x.jpg?v=1695969660
+                    </li>
+                    <li><span>Casio Exilim EX-Z800 CCD Digital Camera:</span>
+                        https://showa-store.com/cdn/shop/files/NZ66099_eaa…6b92-4d50-af8b-49517dbc1034_280x.jpg?v=1692179835
+                    </li>
+                    <li><span>Hitachi I.mega HDC-509 CCD Digital Camera:</span>
+                        https://showa-store.com/cdn/shop/files/NZ65452_769…1792-41b8-bb6a-3999eb82bc1d_280x.jpg?v=1690279299
+                    </li>
+                    <li><span>Olympus Mju 830 CCD Digital
+                            Camera:</span>https://showa-store.com/cdn/shop/files/NZ63879_280x.jpg?v=1683884901</li>
+                    <li><span>Pentax Optio WP CCD Digital Camera [Read:
+                            Description]</span>https://showa-store.com/cdn/shop/files/NZ63954_e41…439e-457d-ab5a-5098f727f2dc_280x.jpg?v=1683885478
+                    </li>
+                    <li><span>Olympus Mju 10 Digital Camera
+                            (u10D/u300D/S300D)</span>https://showa-store.com/cdn/shop/products/NZ62528_…4865-45e3-ba50-ab0657f5fdfe_280x.jpg?v=1679477312
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="item_box">
+                <div class="items">
+                    <h1>Minics</h1>
+                    <li><img src="./images/location.svg" alt="">Address</li>
+                    <li><img src="./images/24gf-telephone.svg" alt="">+852 84816011</li>
+                    <li><img src="./images/email.svg" alt="">CS1102@cityu.edu.hk</li>
+                </div>
+                <div class="items">
+                    <h2>Information</h2>
+                    <p>
+                        Shipping policy
+
+                        Refund policy
+                    </p>
+                </div>
+                <div class="items">
+                    <h2>Useful Link</h2>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Products</li>
+                    <li>Why Us</li>
+                    <li>Testimonial</li>
+                </div>
+                <div class="items">
+                    <h2>Newsletter</h2>
+                    <input type="text" placeholder="Enter your emai">
+                    <a href="#">SUBSCRIBE</a>
+                    <div class="img_list">
+                        <img src="./images/Twitter.svg" alt="">
+                        <img src="./images/video.svg" alt="">
+                        <img src="./images/YouTube_youtube7.svg" alt="">
+                        <img src="./images/send.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="white">
+        </div>
+
+    </div>
+    <script>
+        let Photo_box = document.querySelector('.Photo_box')
+        let Photo_text1 = document.querySelector('#Photo_text1')
+        let Photo_text2 = document.querySelector('#Photo_text2')
+        let hardware_img = document.querySelector('.hardware_img')
+        let hardware_text = document.querySelector('.hardware_text')
+        let table_img = document.querySelector('.table_img')
+        let tbody = document.querySelector('#tableId>tbody')
+        let flag = true
+        Photo_box.addEventListener('mouseover', () => {
+            Photo_text1.style.opacity = '1'
+            Photo_text2.style.opacity = '1'
+        })
+        Photo_box.addEventListener('mouseout', () => {
+
+            Photo_text1.style.opacity = '0'
+            Photo_text2.style.opacity = '0'
+        })
+        hardware_img.addEventListener('mouseover', () => {
+            hardware_text.style.opacity = '1'
+
+        })
+        hardware_img.addEventListener('mouseout', () => {
+
+            hardware_text.style.opacity = '0'
+
+        })
+        table_img.addEventListener('click', () => {
+            if (flag) {
+                table_img.src = 'images/right_key.svg'
+                tbody.style.opacity = 0
+            } else {
+                table_img.src = 'images/down_key.svg'
+                tbody.style.opacity = 1
+            }
+            flag = !flag
+        })
+        let sort = document.querySelector('.sort')
+        let nav_bar = document.querySelector('.nav_bar')
+        let time_out
+
+        sort.addEventListener('mouseover', () => {
+            nav_bar.style.display = 'block'
+        })
+        sort.addEventListener('mouseout', () => {
+            clearTimeout(time_out)
+            time_out = setTimeout(() => {
+                nav_bar.style.display = 'none'
+            }, 1500);
+        })
+        nav_bar.addEventListener('mouseover', () => {
+            nav_bar.style.display = 'block'
+        })
+        nav_bar.addEventListener('mouseout', () => {
+            clearTimeout(time_out)
+            time_out = setTimeout(() => {
+                nav_bar.style.display = 'none'
+            }, 1500);
+        })
+    </script>
+</body>
+
+</html>

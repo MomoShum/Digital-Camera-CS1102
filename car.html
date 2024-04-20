@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100%;
+            height: 1000px;
+            padding-top: 60px;
+        }
+
+        .title {
+            width: 100%;
+            padding: 0 100px;
+            background-color: #434F79;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            z-index: 11111;
+            left: 0;
+        }
+
+        .search_box {
+
+            width: 250px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search_box input {
+            height: 35px;
+            width: 200px;
+            padding-left: 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: 1px solid transparent;
+        }
+
+        .search_box img {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .nav_bar {
+            position: absolute;
+            display: none;
+            width: 80px;
+            padding: 10px 0;
+            background-color: white;
+            z-index: 1111;
+            right: 0;
+            top: 60px;
+            box-shadow: 1px 1px 3px 0px black;
+        }
+
+
+        .btn_box {
+            width: 40px;
+            height: 35px;
+            background-color: #F4C745;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .nav_bar ul a {
+            width: 100%;
+            margin: 5px 0;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav_bar ul a:hover {
+            color: brown;
+        }
+
+
+        .navBar {
+            width: 100%;
+            padding: 0 100px;
+            background-color: #3D486E;
+            height: 50px;
+        }
+
+
+        .banner {
+            width: 100%;
+            height: 550px;
+            background-color: #F4C745;
+            position: relative;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .prev {
+            position: absolute;
+            bottom: -35px;
+            left: 20px;
+            background-color: #434F79;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .prev img,
+        .next img {
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .next {
+            position: absolute;
+            bottom: -35px;
+            left: 100px;
+            background-color: #434F79;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .img_text_box {
+            width: 300px;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .img_text_box li {
+            list-style: none;
+
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .Cart_shop {
+            cursor: pointer;
+        }
+
+        .none_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .img_text_box img {
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .shop_car {
+            position: absolute;
+            display: none;
+            padding: 20px;
+            top: 62px;
+            right: -30px;
+            background-color: #434F79;
+            box-shadow: 0 0px -2px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 300px;
+            z-index: 111;
+        }
+
+        .shop_car ul {
+            width: 100%;
+            height: 70%;
+            padding: 10px;
+            background-color: white;
+            overflow-y: auto;
+            border-radius: 10px;
+        }
+
+        #shop_car_box::-webkit-scrollbar {
+            width: 8px;
+            height: 1px;
+
+        }
+
+        #shop_car_box::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #ddd;
+
+        }
+
+        #shop_car_box::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background: #FEFEFE;
+
+        }
+
+        .shop_car ul li {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: white;
+            box-shadow: 0 -6px 10px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 5px;
+            margin: 10px 0;
+
+        }
+
+        .shop_car ul li .shop_del {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            width: 15px;
+            height: 15px;
+            margin: 0 !important;
+        }
+
+        .shop_car ul li img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .shop_text {
+            width: 100%;
+            height: 100%;
+
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+        }
+
+        .shop_text h1 {
+            font-size: 18px;
+            color: black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 200px;
+
+        }
+
+        .price_box {
+            width: 100%;
+            display: flex;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .close_btn {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            margin: 0 !important;
+            padding: 0;
+        }
+
+        .count_box {
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            color: black;
+            align-items: center;
+        }
+
+        #reduce_btn {
+            width: 15px;
+            height: 15px;
+        }
+
+        #add_btn {
+            width: 15px;
+            height: 15px;
+        }
+
+        .navBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navBar h1 {
+            color: white;
+            font-size: 24px;
+
+
+        }
+
+        .navBar img {
+            width: 35px;
+            height: 35px;
+            margin-right: 50px;
+        }
+
+        .text_box {
+            width: 100%;
+            padding: 50px 0;
+        }
+
+        .text_box p {
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .text_box p img {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .products {
+            width: 100%;
+            padding: 100px 200px;
+            background-color: white;
+        }
+
+        .products h3 {
+            text-align: center;
+            font-size: 47px;
+            font-style: oblique;
+            margin-bottom: 50px;
+        }
+
+        .products_img_list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .key_box {
+            margin: 20px 0;
+        }
+
+        .key_box img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .key_text {
+            margin-bottom: 150px;
+        }
+
+        .key_text p span {
+            font-weight: 700;
+        }
+
+        .products_box {
+            width: 400px;
+            height: 500px;
+            margin: 30px 0;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 -6px 10px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .products_box p {
+            padding: 20px 0;
+            font-size: 21px;
+            font-weight: 500;
+        }
+
+        .products_box:hover .add_btn {
+            display: block;
+        }
+
+        .Total_box {
+            text-align: center;
+            padding: 20px 0;
+            font-weight: 700;
+            font-size: 27px;
+            color: white;
+        }
+
+        .Total_box span {
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .add_btn {
+            display: none;
+            width: 80px;
+            height: 40px;
+            background-color: #2F3858;
+            color: white;
+            position: absolute;
+            right: 20px;
+            top: 320px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .p_img_box {
+            width: 100%;
+            height: 300px;
+            /* background-color: rgba(220, 220, 220, 0.678); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .p_img_box img {
+            width: 240px;
+
+        }
+
+        .Price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Price span {
+            font-size: 28px;
+        }
+
+        .star {
+            width: 150px;
+            height: 30px;
+        }
+
+        .star img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .content {
+            width: 100%;
+            padding: 100px 150px;
+            background-color: #2F3858;
+            display: flex
+        }
+
+        .discovery {
+            width: 90%;
+            margin: 30px auto;
+            padding: 20px;
+            border: 5px solid #3D486E;
+            line-height: 2;
+        }
+
+        .left_box h1 {
+
+            font-size: 36px;
+            color: white;
+        }
+
+        .left_box p {
+            padding: 30px;
+            font-size: 26px;
+            color: white;
+            font-style: oblique;
+            margin-bottom: 40px;
+        }
+
+        .left_box a {
+            margin-top: 40px;
+            padding: 20px 60px;
+            text-decoration: none;
+            background-color: #F4C745;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: 1s;
+        }
+
+        .left_box a:hover {
+            background: white;
+            color: #F4C745;
+        }
+
+        .right_box {
+            display: flex;
+            align-items: center;
+        }
+
+        .right_box img {
+            width: 400px;
+        }
+
+        .choose_box {
+            width: 100%;
+            padding: 50px 150px;
+            height: 1600px;
+            background-color: white;
+        }
+
+        .choose_box h1 {
+            font-size: 47px;
+            text-align: center;
+        }
+
+        .icon_box {
+            width: 100%;
+            height: 350px;
+            margin: 60px 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .icon_img {
+            width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gainsboro;
+            border-radius: 2px;
+        }
+
+        .icon {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon_img img {
+            width: 100px;
+
+        }
+
+        .icon_img h2 {
+            margin: 20px 0;
+        }
+
+        .choose_text {
+            width: 1000px;
+            height: 350px;
+            margin-top: 50px;
+            border: 1px solid gainsboro;
+            padding: 40px;
+            font-size: 16px;
+            margin-left: 22%;
+            box-shadow: 1px 1px 1px 1px gainsboro;
+        }
+
+        .people_box {
+            width: 500px;
+            height: 300px;
+            display: flex;
+            align-items: end;
+            margin: 150px auto;
+            position: relative;
+        }
+
+        .people_box_left {
+            width: 300px;
+            height: 300px;
+            background-color: #F4C745;
+        }
+
+        .people_box_left img {
+            width: 240px;
+            height: 240px;
+            margin: 30px;
+        }
+
+        .people_box_right {
+            margin-bottom: 50px;
+            margin-left: 50px;
+        }
+
+        .people_box_right P {
+            color: #f3cd5a;
+        }
+
+        .triangle {
+            position: absolute;
+            top: -99px;
+            left: 103px;
+            border: 50px solid #F4C745;
+            border-left-color: transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+
+
+        .footer {
+            width: 100%;
+            padding: 100px 150px;
+            background-color: #3D486E;
+        }
+
+        .item_box {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .items {
+            width: 250px;
+            height: 400px;
+
+            padding-left: 30px;
+        }
+
+        .items h1 {
+            font-size: 38px;
+            color: white;
+            font-style: oblique;
+        }
+
+        .items h2 {
+            font-size: 38px;
+            color: white;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .items img {
+            width: 20px;
+            height: 20px;
+            margin: 20px 0;
+
+        }
+
+        .items li {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            color: white;
+            text-align: start;
+            padding: 10px 0;
+        }
+
+        .items p {
+            color: white;
+            padding-right: 60px;
+        }
+
+        .items input {
+            width: 200px;
+            height: 50px;
+            font-size: 24px;
+            padding-left: 10px;
+
+        }
+
+        .items a {
+            display: block;
+            width: 200px;
+            height: 50px;
+            background-color: #F4C745;
+            color: white;
+            font-size: 23px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 2px;
+            margin: 50px 0;
+            text-decoration: none;
+        }
+
+        .img_list {
+            width: 200px;
+            height: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+
+        }
+
+        .img_list img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <div class="title">
+            <div class="search_box">
+                <input type="text" placeholder="Search here...">
+                <div class="btn_box"><img src="./images/search.svg" alt=""></div>
+            </div>
+            <div class="img_text_box">
+                <li><img src="./images/user.svg" alt="">MY ACCOUNT</li>
+                <li class="Cart_shop"><img src="./images/car (1).svg" alt="">CART</li>
+                <li class="sort"><img src="./images/list.svg" alt=""></li>
+                <div class="nav_bar">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="car.html">Cart</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="shop_car">
+                    <img class="close_btn" src="./images/close.svg" alt="">
+                    <ul id="shop_car_box">
+
+
+                    </ul>
+                    <div class="Total_box"> Total: <span class="Total">0</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navBar">
+            <h1>Minics</h1>
+
+        </div>
+
+        <div class="banner">
+            <img id="banner_img" src="./images/1.jpg" alt="">
+            <div class="prev"> <img src="./images/left_btn.svg" alt=""></div>
+            <div class="next"> <img src="./images/right_btn.svg" alt=""></div>
+        </div>
+
+        <div class="products">
+            <h3>Our Products</h3>
+            <div class="products_img_list">
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p1.webp" alt="">
+
+                    </div>
+                    <p>Fujifilm FinePix Z1</p>
+                    <div class="Price">
+                        <span>$ 980.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p2.webp" alt="">
+
+                    </div>
+                    <p>Canon IXY DIGITAL 200a (PowerShot S200 / DIGITAL IXUS V2)</p>
+                    <div class="Price">
+                        <span>$ 1180.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p3.webp" alt="">
+
+                    </div>
+                    <p>Canon IXY DIGITAL 300a (PowerShot S330 / DIGITAL IXUS 330) [Read Description]</p>
+                    <div class="Price">
+                        <span>$ 1180.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p4.webp" alt="">
+
+                    </div>
+                    <p>Canon PowerShot A40 CCD Digital Camera</p>
+                    <div class="Price">
+                        <span>$ 1480.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p5.webp" alt="">
+
+                    </div>
+                    <p>Casio Exilim EX-Z800 CCD Digital Camera</p>
+                    <div class="Price">
+                        <span>$ 880.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p6.webp" alt="">
+
+                    </div>
+                    <p>Hitachi I.mega HDC-509 CCD Digital Camera</p>
+                    <div class="Price">
+                        <span>$ 780.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p7.webp" alt="">
+
+                    </div>
+                    <p>Olympus Mju 830 CCD Digital Camera</p>
+                    <div class="Price">
+                        <span>$ 780.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p8.webp" alt="">
+
+                    </div>
+                    <p>Pentax Optio WP CCD Digital Camera [Read Description]</p>
+                    <div class="Price">
+                        <span>$ 680.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+                <div class="products_box">
+                    <div class="p_img_box">
+                        <img src="./images/p9.webp" alt="">
+
+                    </div>
+                    <p>Olympus Mju 10 Digital Camera (u10D/u300D/S300D)</p>
+                    <div class="Price">
+                        <span>$ 1980.00</span>
+                        <div class="star">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                            <img src="./images/star.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="add_btn">
+                        add+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--  -->
+        <div class="content">
+            <div class="left_box">
+                <h1>We Provide Best For You</h1>
+                <p>Digital camera--a modern miracle which breaks the boundaries of photography and photography sharing
+                    as we know it.
+
+                    This innovative
+
+                    the device combines the advanced technology with user-friendly characteristic, therefore, it becomes
+                    a major part of anyone's gadgets.
+
+                    photographers of all
+
+                    levels.
+
+
+                    The digital camera is a renowned device which in its basics converts light into digital images.
+
+                    It does this through
+
+                    An image sensor which takes an image and converts it into a data set. Therefore, this information
+                    can be saved as a flash card.
+
+                    digital file, either on
+
+                    Internal memory of the camera or an external storage device.
+
+
+                    The flexibility is, without a doubt, one of the major strengths of a digital camera.Whether you're
+                    capturing
+
+                    landscapes, portraits, or
+
+                    action shots might be manipulated with the help of settings and modes of the digital camera.From
+                    automatic
+
+                    modes that adjust
+
+                    settings in the settings to the manual modes that has the rest of the functions disabled.
+
+                    process, there's a mode
+
+                    for every occasion.
+                </p>
+                <a href="#">
+                    Read More
+                </a>
+            </div>
+            <div class="right_box">
+                <img src="./images/about-img.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="choose_box ">
+            <h1>Why Choose Us</h1>
+            <div class="icon_box">
+                <div class="icon_img">
+                    <div class="icon"><img src="./images/w1.png" alt=""></div>
+                    <h2>FAST DELIVERY</h2>
+
+                </div>
+                <div class="icon_img">
+                    <div class="icon"><img src="./images/w2.png" alt=""></div>
+                    <h2>FREE SHIPING</h2>
+
+                </div>
+                <div class="icon_img">
+                    <div class="icon"> <img style="width: 80px;" src="./images/w3.png" alt=""></div>
+                    <h2>BEST QUALITY</h2>
+
+                </div>
+            </div>
+            <h1>What Says Our Customers</h1>
+            <div class="choose_text">
+
+                Whoever invented the digital camera, that awesome instrument in our hands, has my highest
+                congratulations.This remarkable
+
+                device has
+
+                therefore, transformed the art of photography by encouraging to capture those life instant with more
+                capable tools.
+
+                clarity and
+
+                ease.
+
+
+                In fact, it is amazingly flexible. Be it a big landscape, a sensitive portrait, or a rapid activity, the
+                influence of the artist is demonstrated.
+
+                action shot, the
+
+                that is obsolete in the era of digital camera becomes a piece of cake. It settings including Tie modes
+                help us to configure with the environment.
+
+                any shooting
+
+                featuring this location, either we are in full sunlight or deep shadows.
+
+
+                It captures nothing but brilliant pictures. Using higher resolution sensors and more advanced sensors
+                helps.
+
+                processing
+
+                salability the digital camera creates eye catching images with great accuracy.Colors come to
+
+                life, and every
+
+                detail comes up with a high degree of precision.
+
+
+                Digital camera can be said to be the ultimate achievement of innovation and ease of use. It’s indeed
+                created another world.
+
+                of possibilities
+
+                Its relevance extends from the realm of professional photography to enthusiasts and casual users. Well,
+                raise your glass now for this incredible piece of technology.
+
+                all the
+
+                the wonderful moments it has forever captured for us.
+
+            </div>
+            <div class="people_box">
+                <div class="triangle"></div>
+                <div class="people_box_left">
+                    <img src="./images/client.jpg" alt="">
+                </div>
+                <div class="people_box_right">
+                    <h3>Michael Shum</h3>
+                    <p>Photographer</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="item_box">
+                <div class="items">
+                    <h1>Minics</h1>
+                    <li><img src="./images/location.svg" alt="">Address</li>
+                    <li><img src="./images/24gf-telephone.svg" alt="">+852 84816011</li>
+                    <li><img src="./images/email.svg" alt="">CS1102@cityu.edu.hk</li>
+                </div>
+                <div class="items">
+                    <h2>Information</h2>
+                    <p>
+                        Lau Sin Ying 57279853
+                        Li Yuk Yu 56624237
+                        Shum Shue Kwan 57141194
+                        Chau Tsz Ching 56752327
+                    </p>
+                </div>
+                <div class="items">
+                    <h2>Useful Link</h2>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Products</li>
+                    <li>Why Us</li>
+                    <li>Testimonial</li>
+                </div>
+                <div class="items">
+                    <h2>Newsletter</h2>
+                    <input type="text" placeholder="Enter your email">
+                    <a href="#">SUBSCRIBE</a>
+                    <div class="img_list">
+                        <img src="./images/Twitter.svg" alt="">
+                        <img src="./images/video.svg" alt="">
+                        <img src="./images/YouTube_youtube7.svg" alt="">
+                        <img src="./images/send.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="white">
+        </div>
+
+    </div>
+    <script>
+        let arrShop = [{
+            id: 1,
+            name: 'Fujifilm FinePix Z1',
+            Price: 980.00,
+            img: 'images/p1.webp'
+        },
+        {
+            id: 2,
+            name: 'Canon IXY DIGITAL 200a (PowerShot S200 / DIGITAL IXUS V2)',
+            Price: 1180.00,
+            img: 'images/p2.webp'
+        },
+        {
+            id: 3,
+            name: `Canon IXY DIGITAL 300a (PowerShot S330 / DIGITAL IXUS 330) [Read Description]`,
+            Price: 1180.00,
+            img: 'images/p3.webp'
+        }, {
+            id: 4,
+            name: 'Canon PowerShot A40 CCD Digital Camera',
+            Price: 1480.00,
+            img: 'images/p4.webp'
+        },
+        {
+            id: 5,
+            name: 'Casio Exilim EX-Z800 CCD Digital Camera',
+            Price: 880.00,
+            img: 'images/p5.webp'
+        },
+        {
+            id: 6,
+            name: `Hitachi I.mega HDC-509 CCD Digital Camera`,
+            Price: 780.00,
+            img: 'images/p6.webp'
+        },
+        {
+            id: 7,
+            name: 'Olympus Mju 830 CCD Digital Camera',
+            Price: 70.00,
+            img: 'images/p7.webp'
+        },
+        {
+            id: 8,
+            name: 'Pentax Optio WP CCD Digital Camera [Read Description]',
+            Price: 680.00
+            , img: 'images/p8.webp'
+        },
+        {
+            id: 9,
+            name: `Olympus Mju 10 Digital Camera (u10D/u300D/S300D)`,
+            Price: 1980.00,
+            img: 'images/p9.webp'
+        },
+        ]
+
+        let banner_img = document.querySelector('#banner_img')
+
+        let prev = document.querySelector('.prev')
+
+        let next = document.querySelector('.next')
+
+        let index = 0
+        let arrImg = ['images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg']
+        let time
+
+        function setTime() {
+            clearInterval(time)
+            time = setInterval(() => {
+                setNext()
+            }, 1500)
+
+        }
+        setTime()
+
+        function setImg() {
+            banner_img.src = arrImg[index]
+        }
+
+        function setNext() {
+            if (index > 3) {
+                index = 0
+            } else {
+                index = index + 1
+            }
+            setImg()
+        }
+
+        function setPrev() {
+            if (index < 1) {
+                index = 4
+            } else {
+                index = index - 1
+            }
+            setImg()
+        }
+
+        next.addEventListener('click', () => {
+            setNext()
+            setTime()
+        })
+
+        prev.addEventListener('click', () => {
+            setPrev()
+            setTime()
+        })
+
+
+
+        let add_btn = document.querySelectorAll('.add_btn')
+
+        let shop_car_box = document.querySelector('#shop_car_box')
+        let TotalHtml = document.querySelector('.Total')
+
+        let Cart_shop = document.querySelector('.Cart_shop')
+        let shop_car = document.querySelector('.shop_car')
+        let close_btn = document.querySelector('.close_btn')
+        let shopCarArr = []
+        let html = ''
+        let Total = 0
+        for (let i = 0; i < add_btn.length; i++) {
+            add_btn[i].addEventListener('click', () => {
+                let id = arrShop[i].id
+                let obj = {
+                    id: arrShop[i].id,
+                    name: arrShop[i].name,
+                    Price: arrShop[i].Price,
+                    number: 1,
+                    img: arrShop[i].img
+                }
+                if (shopCarArr.length == 0) {
+                    shopCarArr.push(obj)
+                    console.log(shopCarArr);
+                    setHtml()
+                    return
+                }
+                let flag = shopCarArr.findIndex(item => {
+                    return item.id == id
+                })
+                if (flag == -1) {
+                    shopCarArr.push(obj)
+                } else {
+
+                    shopCarArr[flag].number++
+                }
+                console.log(shopCarArr);
+                setHtml()
+            })
+
+        }
+
+
+
+
+        function setHtml() {
+            html = ''
+            if (shopCarArr.length == 0) {
+                html = `
+        <div class = 'none_box'>
+        Not currently available
+        </div>
+        
+        `
+                setTotal()
+                shop_car_box.innerHTML = html
+                return
+
+            }
+            for (let i = 0; i < shopCarArr.length; i++) {
+                html += `
+                 <li>
+                     <img src="${shopCarArr[i].img}" alt="">
+                            <div class="shop_text">
+                                <h1>${shopCarArr[i].name} </h1>
+                                <div class="price_box">
+                                    <div class="price_nubmer">${shopCarArr[i].number}</div> X<span>$300.00</span>
+                                </div>
+                                <div class="count_box">
+                                    <img id="reduce_btn" src="./images/reduce.svg" alt="" data-id = ${shopCarArr[i].id} data-type = 'reduce'>
+                                    <div class="nubmer">${shopCarArr[i].number}</div>
+                                    <img id="add_btn" src="./images/add.svg" alt="" data-id = ${shopCarArr[i].id} data-type = 'add'>
+                                </div>
+                            </div>
+                            <img class="shop_del" src="./images/closer2.svg" alt="" data-id = ${shopCarArr[i].id} data-type = 'del'>
+                        </li>
+    
+    `
+
+            }
+            setTotal()
+            shop_car_box.innerHTML = html
+
+        }
+        setHtml()
+        shop_car_box.addEventListener('click', (e) => {
+            console.log(e.target.dataset);
+            let id = e.target.dataset.id
+            let type = e.target.dataset.type
+            let index = shopCarArr.findIndex(item => {
+                return item.id == id
+            })
+            if (type == 'reduce') {
+                if (shopCarArr[index].number == 1) {
+                    alert('It is already the minimum quantity')
+                    return
+                }
+                shopCarArr[index].number--
+            } else if (type == 'add') {
+                shopCarArr[index].number++
+            } else if (type == 'del') {
+
+                shopCarArr.splice(index, 1);
+            }
+            setHtml()
+        })
+        function setTotal() {
+            Total = 0
+            for (let i = 0; i < shopCarArr.length; i++) {
+                Total += shopCarArr[i].number * shopCarArr[i].Price
+
+
+            }
+            TotalHtml.innerHTML = Total.toFixed(2) + '$'
+        }
+        Cart_shop.addEventListener('click', () => {
+            shop_car.style.display = 'block'
+        })
+        close_btn.addEventListener('click', () => {
+            shop_car.style.display = 'none'
+        })
+        let sort = document.querySelector('.sort')
+        let nav_bar = document.querySelector('.nav_bar')
+        let time_out
+
+        sort.addEventListener('mouseover', () => {
+            nav_bar.style.display = 'block'
+        })
+        sort.addEventListener('mouseout', () => {
+            clearTimeout(time_out)
+            time_out = setTimeout(() => {
+                nav_bar.style.display = 'none'
+            }, 1500);
+        })
+        nav_bar.addEventListener('mouseover', () => {
+            nav_bar.style.display = 'block'
+        })
+        nav_bar.addEventListener('mouseout', () => {
+            clearTimeout(time_out)
+            time_out = setTimeout(() => {
+                nav_bar.style.display = 'none'
+            }, 1500);
+        })
+    </script>
+</body>
+
+</html>

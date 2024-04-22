@@ -1,1 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100%;
+            height: 1000px;
+            padding-top: 60px;
+        }
+
+        .title {
+            width: 100%;
+            padding: 0 100px;
+            background-color: #434F79;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            z-index: 11111;
+            left: 0;
+        }
+
+        .search_box {
+
+            width: 250px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search_box input {
+            height: 35px;
+            width: 200px;
+            padding-left: 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: 1px solid transparent;
+        }
+
+        .search_box img {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .nav_bar {
+            position: absolute;
+            display: none;
+            width: 80px;
+            padding: 10px 0;
+            background-color: white;
+            z-index: 1111;
+            right: 0;
+            top: 60px;
+            box-shadow: 1px 1px 3px 0px black;
+        }
+
+
+        .btn_box {
+            width: 40px;
+            height: 35px;
+            background-color: #F4C745;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .nav_bar ul a {
+            width: 100%;
+            margin: 5px 0;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav_bar ul a:hover {
+            color: brown;
+        }
+
+        .navBar {
+            width: 100%;
+            padding: 0 100px;
+            background-color: #3D486E;
+            height: 50px;
+        }
+
+
+        .banner {
+            width: 100%;
+            height: 550px;
+            background-color: #F4C745;
+            position: relative;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .prev {
+            position: absolute;
+            bottom: -35px;
+            left: 20px;
+            background-color: #434F79;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .prev img,
+        .next img {
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .next {
+            position: absolute;
+            bottom: -35px;
+            left: 100px;
+            background-color: #434F79;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .img_text_box {
+            width: 300px;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .img_text_box li {
+            list-style: none;
+
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .Cart_shop {
+            cursor: pointer;
+        }
+
+        .none_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .img_text_box img {
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .shop_car {
+            position: absolute;
+            display: none;
+            padding: 20px;
+            top: 62px;
+            right: -30px;
+            background-color: #434F79;
+            box-shadow: 0 0px -2px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            height: 300px;
+            z-index: 111;
+        }
+
+        .shop_car ul {
+            width: 100%;
+            height: 70%;
+            padding: 10px;
+            background-color: white;
+            overflow-y: auto;
+            border-radius: 10px;
+        }
+
+        #shop_car_box::-webkit-scrollbar {
+            width: 8px;
+            height: 1px;
+
+        }
+
+        #shop_car_box::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #ddd;
+
+        }
+
+        #shop_car_box::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background: #FEFEFE;
+
+        }
+
+        .shop_car ul li {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: white;
+            box-shadow: 0 -6px 10px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 5px;
+            margin: 10px 0;
+
+        }
+
+        .shop_car ul li .shop_del {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            width: 15px;
+            height: 15px;
+            margin: 0 !important;
+        }
+
+        .shop_car ul li img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .shop_text {
+            width: 100%;
+            height: 100%;
+
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+        }
+
+        .shop_text h1 {
+            font-size: 18px;
+            color: black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 200px;
+
+        }
+
+        .price_box {
+            width: 100%;
+            display: flex;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .close_btn {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            margin: 0 !important;
+            padding: 0;
+        }
+
+        .count_box {
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            color: black;
+            align-items: center;
+        }
+
+        #reduce_btn {
+            width: 15px;
+            height: 15px;
+        }
+
+        #add_btn {
+            width: 15px;
+            height: 15px;
+        }
+
+        .navBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navBar h1 {
+            color: white;
+            font-size: 24px;
+
+
+        }
+
+        .navBar img {
+            width: 35px;
+            height: 35px;
+            margin-right: 50px;
+        }
+
+        .text_box {
+            width: 100%;
+            padding: 50px 0;
+        }
+
+        .text_box p {
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .text_box p img {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .products {
+            width: 100%;
+            padding: 100px 200px;
+            background-color: white;
+        }
+
+        .products h3 {
+            text-align: center;
+            font-size: 47px;
+            font-style: oblique;
+            margin-bottom: 50px;
+        }
+
+        .products_img_list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .key_box {
+            margin: 20px 0;
+        }
+
+        .key_box img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .key_text {
+            margin-bottom: 150px;
+        }
+
+        .key_text p span {
+            font-weight: 700;
+        }
+
+        .products_box {
+            width: 400px;
+            height: 500px;
+            margin: 30px 0;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 -6px 10px rgb(255, 255, 255), 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .products_box p {
+            padding: 20px 0;
+            font-size: 21px;
+            font-weight: 500;
+        }
+
+        .products_box:hover .add_btn {
+            display: block;
+        }
+
+        .Total_box {
+            text-align: center;
+            padding: 20px 0;
+            font-weight: 700;
+            font-size: 27px;
+            color: white;
+        }
+
+        .Total_box span {
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .add_btn {
+            display: none;
+            width: 80px;
+            height: 40px;
+            background-color: #2F3858;
+            color: white;
+            position: absolute;
+            right: 20px;
+            top: 320px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .p_img_box {
+            width: 100%;
+            height: 300px;
+            /* background-color: rgba(220, 220, 220, 0.678); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .p_img_box img {
+            width: 240px;
+
+        }
+
+        .Price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Price span {
+            font-size: 28px;
+        }
+
+        .star {
+            width: 150px;
+            height: 30px;
+        }
+
+        .star img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .content {
+            width: 100%;
+            padding: 100px 150px;
+            background-color: #2F3858;
+            display: flex
+        }
+
+        .discovery {
+            width: 90%;
+            margin: 30px auto;
+            padding: 20px;
+            border: 5px solid #3D486E;
+            line-height: 2;
+        }
+
+        .left_box h1 {
+
+            font-size: 36px;
+            color: white;
+        }
+
+        .left_box p {
+            padding: 30px;
+            font-size: 26px;
+            color: white;
+            font-style: oblique;
+            margin-bottom: 40px;
+        }
+
+        .left_box a {
+            margin-top: 40px;
+            padding: 20px 60px;
+            text-decoration: none;
+            background-color: #F4C745;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: 1s;
+        }
+
+        .left_box a:hover {
+            background: white;
+            color: #F4C745;
+        }
+
+        .right_box {
+            display: flex;
+            align-items: center;
+        }
+
+        .right_box img {
+            width: 400px;
+        }
+
+        .choose_box {
+            width: 100%;
+            padding: 50px 150px;
+            height: 1600px;
+            background-color: white;
+        }
+
+        .choose_box h1 {
+            font-size: 47px;
+            text-align: center;
+        }
+
+        .icon_box {
+            width: 100%;
+            height: 350px;
+            margin: 60px 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .icon_img {
+            width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gainsboro;
+            border-radius: 2px;
+        }
+
+        .icon {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon_img img {
+            width: 100px;
+
+        }
+
+        .icon_img h2 {
+            margin: 20px 0;
+        }
+
+        .choose_text {
+            width: 1000px;
+            height: 350px;
+            margin-top: 50px;
+            border: 1px solid gainsboro;
+            padding: 40px;
+            font-size: 16px;
+            margin-left: 22%;
+            box-shadow: 1px 1px 1px 1px gainsboro;
+        }
+
+        .people_box {
+            width: 500px;
+            height: 300px;
+            display: flex;
+            align-items: end;
+            margin: 150px auto;
+            position: relative;
+        }
+
+        .people_box_left {
+            width: 300px;
+            height: 300px;
+            background-color: #F4C745;
+        }
+
+        .people_box_left img {
+            width: 240px;
+            height: 240px;
+            margin: 30px;
+        }
+
+        .people_box_right {
+            margin-bottom: 50px;
+            margin-left: 50px;
+        }
+
+        .people_box_right P {
+            color: #f3cd5a;
+        }
+
+        .triangle {
+            position: absolute;
+            top: -99px;
+            left: 103px;
+            border: 50px solid #F4C745;
+            border-left-color: transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+
+
+        .footer {
+            width: 100%;
+            padding: 100px 150px;
+            background-color: #3D486E;
+        }
+
+        .item_box {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .items {
+            width: 250px;
+            height: 400px;
+
+            padding-left: 30px;
+        }
+
+        .items h1 {
+            font-size: 38px;
+            color: white;
+            font-style: oblique;
+        }
+
+        .items h2 {
+            font-size: 38px;
+            color: white;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .items img {
+            width: 20px;
+            height: 20px;
+            margin: 20px 0;
+
+        }
+
+        .items li {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            color: white;
+            text-align: start;
+            padding: 10px 0;
+        }
+
+        .items p {
+            color: white;
+            padding-right: 60px;
+        }
+
+        .items input {
+            width: 200px;
+            height: 50px;
+            font-size: 24px;
+            padding-left: 10px;
+
+        }
+
+        .items a {
+            display: block;
+            width: 200px;
+            height: 50px;
+            background-color: #F4C745;
+            color: white;
+            font-size: 23px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 2px;
+            margin: 50px 0;
+            text-decoration: none;
+        }
+
+        .img_list {
+            width: 200px;
+            height: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+
+        }
+
+        .img_list img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box">
+        <div class="title">
+            <div class="search_box">
+                <input type="text" placeholder="Search here...">
+                <div class="btn_box"><img src="./images/search.svg" alt=""></div>
+            </div>
+            <div class="img_text_box">
+                <li><img src="./images/user.svg" alt="">MY ACCOUNT</li>
+                <li><img src="./images/car (1).svg" alt="">CART</li>
+                <li class="sort"><img src="./images/list.svg" alt=""></li>
+                <div class="nav_bar">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="car.html">Cart</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="navBar">
+            <h1>Minics</h1>
+
+        </div>
+        <div class="content">
+            <div class="left_box">
+                <h1>We Provide Best For You</h1>
+                <p>Creative digital technology has come a long way to change an everyday worldview activating
+                    individuals' experience in a new way that will result in a world where there is nothing ordinary
+                    anymore. The only ground on which one can appreciate this perfection is through the act of sharing.
+
+                    This innovative
+
+                    consumer from around the globe have improved their social interaction by the introduction of this
+                    communication devise that is said to possess extra features and is regarded as an essential
+                    commodity.
+
+                    photographers of all
+
+                    levels.
+
+
+                    A digital cameras is termed as a photographic instrument that works the same as digital converter to
+                    transforms light into digital image from central as well.
+
+                    It does this through
+
+                    from an imaging device, the prnt collects the data to re-construct it. By leveraging data analytics
+                    and addressing theirs as the same, they will able to .
+
+                    digital file, either on
+
+                    it can be done either by employing the internal storage system of the camera or by connecting an
+                    external storage (device).
+
+                </p>
+                <a href="#">
+                    Read More
+                </a>
+            </div>
+
+            <div class="right_box">
+                <img src="./images/about-img.jpg" alt="">
+            </div>
+        </div>
+        <div class="text_box">
+            <div class="products">
+                <h3>A Long Journey of Discovery: The Story of Digital Cameras</h3>
+                <p>
+                    Digital Camera, that technical revolution of today day has not failed in amazed us with its
+                    capabilities.
+
+                    revolutionized the way we
+
+                    trace and inform about our surroundings. It's not just an instrument for capturing pictures- it's
+                    mode of expression and aesthetics.
+
+                    a recorder of life's
+
+                    adorned with the moments, and carries the memories forever. Let us start on a long way of
+                    investigation for understanding the savage phenomenon.
+
+                    wonders of digital cameras
+
+                    and the dramatic events as well as many other great stories they managed to observe.
+
+                    <img src="./images/10.webp" alt="">
+
+                    The inner workings of the digital camera appears to be the sensor, the key component which for
+                    images to be captured requires the conversion of light into.
+
+                    digital images.Its
+
+                    we couldn't have witnessed a more spectacular change if we didn't exist. Very first ever drones with
+                    low resolution sensors just disclosed the first qitchy views of what was outside your window.
+
+                    we have come to
+
+                    cameras which rivals the human eye in capturing detail, color, and quality.These
+
+                    sensors have captured
+
+                    from snaps of millions light-years away, zooming into the microscopical world of cells, and the
+                    entirety of space, they are witnessing all the invisible.
+
+                    visible and the ordinary
+
+                    extraordinary.
+
+
+                    The lens, a making part of the digital camera, also underwent significant improvement.
+
+                    advancements.From simple fixed
+
+                    ranges from cell phone viewfinders to expensive professional lens systems that feature manual
+                    aperture and other adjustment settings.
+
+                    expression have expanded
+
+                    exponentially. We can find photographers with these instruments in every place and time that they
+                    want to enrich us with their beauty of landscapes,
+
+                    intimacy of portraits,
+
+                    As well as reporting on events, and the progress of the players, the sports journalists tries to
+                    tell stories that give us the goose-bumps and make our hearts skip a beat.
+
+
+                    I can attest that digital cameras offer an astonishing range of possibilities. No matter you are a
+                    pro-photographer or just an amateur who wants to take beautiful pictures.
+
+                    capturing fashion
+
+                    digital cameras resemble and are available for chance, weddings, and amateurs taking candid pictures
+                    with their friends and families, or even themselves, it happens all the time.
+
+                    camera that suits
+
+                    your needs. Continuously, the modes of shooting, from automatic to manually, will help users to
+                    engineer the settings.
+
+                    based on their
+
+                    ranging from beginner to advanced learner and varying based on skill level and outcomes desired. The
+                    fact that the digital camera is sure good that it can overpass any limitations of cameras in the
+                    past now makes it possible for photographers to push the limits.
+
+                    of creativity,
+
+                    taking pictures which the inquiries and activities for centuries would not be able to.
+
+
+                    Beyond this, integration of the digital camera with modern technology has been a ring of new
+                    expansion of the technology.
+
+                    possibilities.With
+
+                    taking advantage of networks connectivity, today mobile phone photographers use apps to immediately
+                    post their clicks online.
+
+                    media platforms or
+
+                    shipping them to clients and family members in realtime. Listen to the given audio and repeat the
+                    sentences given below. Tsepo has been experiencing a range of emotions since his father's passing
+                    away. Instant correspondence or elaboration of the outputs has forever changed the modus operandi of
+                    marketing.
+
+                    the way we interact
+
+                    in fact, we can also see our own digital footprints with this, making it not only to share our
+                    stories, but to also connect with others.
+
+                    Digital cameras have as diversified and many versions of the stories as there are people who use
+                    them.Consider the story of
+
+                    a wildlife
+
+                    the art photographer who, equipped with a professional digital camera and telephoto lens, managed to
+                    take really distant pictures of the rare phenomena.
+
+                    endangered species in
+
+                    their natural habitats. These pictures did not only show the spectacular beauty and vulnerability of
+                    Mother Earth but also reveal our responsibility for the future of our spectacular home.
+
+                    raised awareness
+
+                    and private sector will need to step up and continue to invest in conservation projects.
+
+                </p>
+
+            </div>
+            <div class="products">
+                <h3>The Benefits and Usage Scenarios of Digital Cameras</h3>
+                <br><br><br>
+                <h2>Benefits of Digital Cameras:</h2>
+                <div class="key_box"><img class="key_img" src="./images/down_key.svg" alt=""></div>
+                <div class="key_text">
+                    <p><span>High Image Quality:</span> Digital cameras capture images with exceptional clarity and
+                        color reproduction, ensuring that every
+                        detail is captured accurately.</p>
+                    <p><span>Instant Feedback:</span> With digital cameras, you can see the results of your shots
+                        immediately on the screen, allowing for quick adjustments
+                        and improvements.
+                    </p>
+                    <p><span>Ease of Use:</span> Many digital cameras offer user-friendly interfaces and automatic
+                        settings, making them accessible to photographers of
+                        all skill levels.</p>
+                    <p><span>Flexibility and Versatility:</span> Digital cameras come in various shapes and sizes, with
+                        interchangeable lenses and adjustable settings, suiting different
+                        shooting needs and preferences.</p>
+                    <p><span>Cost-Effectiveness:</span> Compared to traditional film cameras, digital cameras eliminate
+                        the need for film purchases and development, reducing
+                        overall costs.</p>
+                    <p><span>Sharing and Storage:</span> Digital images can be easily transferred and shared online, and
+                        stored in vast quantities without the need for physical
+                        storage space.</p>
+                </div>
+                <h2>Usage Scenarios for Digital Cameras:</h2>
+                <div class="key_box"><img class="key_img" src="./images/down_key.svg" alt=""></div>
+                <div class="key_text">
+                    <p><span>Professional Photography:</span> Photojournalists, portrait photographers, and landscape
+                        shooters rely on digital cameras to capture high-quality images
+                        for publications, exhibitions, and commercial use.</p>
+                    <p><span>Travel and Adventure:</span> Digital cameras are perfect for capturing memorable moments
+                        during travel, allowing travelers to document their
+                        adventures and share them with friends and family.
+                    </p>
+                    <p><span>Family and Events:</span> Digital cameras are ideal for capturing special occasions like
+                        weddings, birthdays, and reunions. They enable family
+                        members to preserve and relive these moments for years to come.</p>
+                    <p><span>Scientific Research:</span> Researchers in various fields use digital cameras to capture
+                        microscopic images, document experiments, and record data
+                        for analysis and publication.</p>
+                    <p><span>Education and Training:</span> Digital cameras are commonly used in educational settings
+                        for hands-on learning experiences, allowing students to
+                        explore photography and visual communication skills.</p>
+                    <p><span>Hobby and Creativity:</span> Amateur photographers and creative individuals use digital
+                        cameras to express their imaginations, capture unique
+                        perspectives, and pursue their passions.</p>
+                </div>
+
+
+            </div>
+            <div class="products">
+                <h3>discovery</h3>
+
+                <div class="key_box"><img class="key_img" src="./images/down_key.svg" alt=""></div>
+                <div class="key_text">
+                    <div class="Discovery">
+
+
+
+                        We are going to make shopping cart feature a part of our system as it is the most important
+                        part. This option is highly important for any e-commerce website, however, it lets the users
+                        choose products and review their selections. Our ride started by just fitting the foundation of
+                        the website using HTML for giving it the structure and CSS for it to be stylish. Next, we will
+                        deal with the more advanced features of the platform using JS.
+
+
+                        We did JavaScript to add a functionality to the cart that would enable the selection of products
+                        by clicking one button. Every single thing that is on the website has an "Add to Cart" button.
+                        When clicked, a Java script function becomes active adding the product onto the shopping cart
+                        array and invoking the cart display panel to update the quantity of the item. This function is
+                        designed to:This function is designed to:
+
+                        1. Check whether it's already added to the cart.
+
+                        2. More of the product can be put into the cart if there is only this product in the cart at the
+                        moment.
+
+                        3. In case the product you are looking for is not in cart, just click and add to the cart.
+
+                        4. Count and display the cost the customer will have to pay on the very spot at each time he
+                        selects or deletes something.
+
+
+
+                        The cart style of the site was made to be not only functional but also to look good through the
+                        use of CSS. We therefore made the cart be seen in every page so as to make navigation easy and
+                        the shopping experience smooth but not at all frustrating. We add responsive design elements to
+                        make the cart and website work on any device and with all types of screens.
+
+
+
+                        Such a project opened our minds to the fact the client side scripting with JavaScript is
+                        powerful in that it is able to do on user interaction without involving the server side
+                        programming. We mastered the ways of handling and playing upon DOM and how to store data in a
+                        local browser location. Besides us we gained awareness of making a responsive web design that
+                        designed out as per different screen sizes of devices.
+
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="item_box">
+                <div class="items">
+                    <h1>Minics</h1>
+                    <li><img src="./images/location.svg" alt="">Address</li>
+                    <li><img src="./images/24gf-telephone.svg" alt="">+852 84816011</li>
+                    <li><img src="./images/email.svg" alt="">CS1102@cityu.edu.hk</li>
+                </div>
+                <div class="items">
+                    <h2>Information</h2>
+                    <p>
+                        Shipping policy
+
+                        Refund policy
+                    </p>
+                </div>
+                <div class="items">
+                    <h2>Useful Link</h2>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Products</li>
+                    <li>Why Us</li>
+                    <li>Testimonial</li>
+                </div>
+                <div class="items">
+                    <h2>Newsletter</h2>
+                    <input type="text" placeholder="Enter your emai">
+                    <a href="#">SUBSCRIBE</a>
+                    <div class="img_list">
+                        <img src="./images/Twitter.svg" alt="">
+                        <img src="./images/video.svg" alt="">
+                        <img src="./images/YouTube_youtube7.svg" alt="">
+                        <img src="./images/send.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="white">
+        </div>
+
+    </div>
+    <script>
+        let key_img = document.querySelectorAll('.key_img')
+        let key_text = document.querySelectorAll('.key_text')
+
+        let arr = [true, true, true]
+        for (let i = 0; i < key_img.length; i++) {
+            key_img[i].addEventListener('click', (e) => {
+                arr[i] = !arr[i]
+                if (arr[i]) {
+                    key_img[i].src = 'images/down_key.svg'
+                    key_text[i].style.display = 'block'
+                } else {
+                    key_img[i].src = 'images/right_key.svg'
+                    key_text[i].style.display = 'none'
+                }
+            })
+
+        }
+        let sort = document.querySelector('.sort')
+        let nav_bar = document.querySelector('.nav_bar')
+        let time_out
+
+        sort.addEventListener('mouseover', () => {
+            nav_bar.style.display = 'block'
+        })
+        sort.addEventListener('mouseout', () => {
+            clearTimeout(time_out)
+            time_out = setTimeout(() => {
+                nav_bar.style.display = 'none'
+            }, 1500);
+        })
+        nav_bar.addEventListener('mouseover', () => {
+            nav_bar.style.display = 'block'
+        })
+        nav_bar.addEventListener('mouseout', () => {
+            clearTimeout(time_out)
+            time_out = setTimeout(() => {
+                nav_bar.style.display = 'none'
+            }, 1500);
+        })
+    </script>
+</body>
+
+</html>
